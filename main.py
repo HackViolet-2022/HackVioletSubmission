@@ -1,8 +1,5 @@
-import googlemaps
-import requests
+import openai
+import os
+import discord
 
-
-line = open('key.txt','r').read()
-
-gmaps = googlemaps.Client(key = line)
-
+line = open("key.txt","r")
