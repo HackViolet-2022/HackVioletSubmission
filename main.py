@@ -1,8 +1,7 @@
 import googlemaps
 
-with open('key.txt') as f:
-    line = f.readline()
+line = open('key.txt','r').read()
 
-f.close()
 gmaps = googlemaps.Client(key = line)
 
+gmaps.find_place("woman owned")
