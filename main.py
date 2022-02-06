@@ -13,13 +13,13 @@ bot = commands.Bot(command_prefix = '!')
 def talk(message):
     openai.api_key = keys.OPENAPI_KEY
     response = openai.Completion.create(
-        engine="text-ada-001",
+        engine="text-curie-001",
         prompt = message,
         temperature = 0.8,
-        max_tokens = 200,
+        max_tokens = 150,
         top_p = 1,
         frequency_penalty = 0,
-        presence_penalty = 0
+        presence_penalty = 0.3
     )
     content = response.choices[0].text.split('.')
     print(content)
@@ -44,7 +44,6 @@ async def on_message(message):
     channel = message.channel
     if message.channel.id == message.author.dm_channel.id:
         print("Hello")
-        await channel.send("Hello") 
         x = message.author.id #store message author
         print(message.content)
         await channel.send(talk(message.content))
